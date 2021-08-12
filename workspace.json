@@ -6,29 +6,29 @@
   },
   "generators": {
     "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
       "e2eTestRunner": "none",
       "inlineStyle": true,
       "inlineTemplate": true,
-      "linter": "eslint",
       "prefix": "ncl",
       "skipTests": true,
       "strict": true,
-      "style": "scss",
       "tags": "type:app",
-      "unitTestRunner": "jest",
       "viewEncapsulation": "None"
     },
     "@nrwl/angular:library": {
-      "linter": "eslint",
-      "prefix": "nwc",
-      "strict": true,
       "style": "scss",
-      "unitTestRunner": "jest"
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "prefix": "nwc",
+      "strict": true
     },
     "@schematics/angular:component": {
+      "style": "scss",
       "changeDetection": "OnPush",
-      "displayBlock": true,
-      "style": "scss"
+      "displayBlock": true
     },
     "@nrwl/angular:component": {
       "style": "scss"
@@ -128,6 +128,12 @@
           }
         }
       }
+    },
+    "root-assets": {
+      "projectType": "library",
+      "root": "libs/root/assets",
+      "sourceRoot": "libs/root/assets/src",
+      "targets": {}
     }
   }
 }

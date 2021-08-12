@@ -30,6 +30,9 @@
   "projects": {
     "frontend": {
       "tags": ["type:app"]
+    },
+    "root-assets": {
+      "tags": ["scope:root", "type:assets"]
     }
   }
 }
