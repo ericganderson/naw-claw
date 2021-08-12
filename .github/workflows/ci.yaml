@@ -1,0 +1,30 @@
+name: Frontend App
+
+on:
+  push:
+    branches:
+      -main
+  pull_requests:
+    branches:
+  workflow_dispatch:
+    branches:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: ations/checkout@v2
+
+      - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14x
+
+      -name: Install PNPM
+      run: npm install --global pnpm
+      -name: Install dependencies
+      run: pnpm install
+
+      -name: Build Angular app
+      run: pnpm build
