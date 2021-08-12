@@ -6,10 +6,10 @@
   },
   "generators": {
     "@nrwl/angular:application": {
+      "e2eTestRunner": "none",
       "style": "scss",
       "linter": "eslint",
       "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress",
       "inlineStyle": true,
       "inlineTemplate": true,
       "prefix": "ngx",
@@ -124,32 +124,6 @@
           "options": {
             "jestConfig": "apps/frontend/jest.config.js",
             "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "frontend-e2e": {
-      "root": "apps/frontend-e2e",
-      "sourceRoot": "apps/frontend-e2e/src",
-      "projectType": "application",
-      "targets": {
-        "e2e": {
-          "executor": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/frontend-e2e/cypress.json",
-            "tsConfig": "apps/frontend-e2e/tsconfig.e2e.json",
-            "devServerTarget": "frontend:serve:development"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "frontend:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/frontend-e2e/**/*.{js,ts}"]
           }
         }
       }
