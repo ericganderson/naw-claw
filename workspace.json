@@ -33,6 +33,7 @@
       "style": "scss"
     }
   },
+  "defaultProject": "frontend",
   "projects": {
     "frontend": {
       "projectType": "application",
@@ -153,6 +154,5 @@
         }
       }
     }
-  },
-  "defaultProject": "frontend"
+  }
 }
