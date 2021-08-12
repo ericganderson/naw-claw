@@ -16,15 +16,14 @@ jobs:
     steps:
       - uses: ations/checkout@v2
 
-      - name: Setup Node.js
+      - name: Setup Node.js 14.x
       uses: actions/setup-node@v2
       with:
         node-version: 14x
-
       -name: Install PNPM
-      run: npm install --global pnpm
+        run: npm install --global pnpm
       -name: Install dependencies
-      run: pnpm install
+        run: pnpm install
 
       -name: Build Angular app
-      run: pnpm build
+        run: pnpm build
