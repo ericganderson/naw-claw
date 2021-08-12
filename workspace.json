@@ -26,9 +26,9 @@
       "unitTestRunner": "jest"
     },
     "@schematics/angular:component": {
+      "style": "scss",
       "changeDetection": "OnPush",
-      "displayBlock": true,
-      "style": "scss"
+      "displayBlock": true
     },
     "@nrwl/angular:component": {
       "style": "scss"
@@ -53,10 +53,18 @@
             "tsConfig": "apps/frontend/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "apps/frontend/src/favicon.ico",
-              "apps/frontend/src/assets"
+              {
+                "glob": "favicon.ico",
+                "input": "libs/root/assets/src",
+                "output": "./"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/root/assets/src/assets",
+                "output": "assets"
+              }
             ],
-            "styles": ["apps/frontend/src/styles.scss"],
+            "styles": ["libs/root/styles/src/index.scss"],
             "scripts": []
           },
           "configurations": {
@@ -75,8 +83,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "apps/frontend/src/environments/environment.ts",
-                  "with": "apps/frontend/src/environments/environment.prod.ts"
+                  "replace": "libs/root/environments/src/environments/environment.ts",
+                  "with": "libs/root/environments/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -128,6 +136,43 @@
           }
         }
       }
+    },
+    "root-assets": {
+      "projectType": "library",
+      "root": "libs/root/assets",
+      "sourceRoot": "libs/root/assets/src",
+      "targets": {}
+    },
+    "root-environments": {
+      "projectType": "library",
+      "root": "libs/root/environments",
+      "sourceRoot": "libs/root/environments/src",
+      "prefix": "nwc",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/root/environments"],
+          "options": {
+            "jestConfig": "libs/root/environments/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/root/environments/src/**/*.ts",
+              "libs/root/environments/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "root-styles": {
+      "projectType": "library",
+      "root": "libs/root/styles",
+      "sourceRoot": "libs/root/styles/src",
+      "targets": {}
     }
   }
 }
