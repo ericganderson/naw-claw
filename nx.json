@@ -30,6 +30,15 @@
   "projects": {
     "frontend": {
       "tags": ["type:app"]
+    },
+    "root-assets": {
+      "tags": ["scope:root", "type:assets"]
+    },
+    "root-environments": {
+      "tags": ["scope:root", "type:environments"]
+    },
+    "root-styles": {
+      "tags": ["scope:root", "type:styles"]
     }
   }
 }
