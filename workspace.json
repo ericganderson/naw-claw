@@ -7,22 +7,23 @@
   "generators": {
     "@nrwl/angular:application": {
       "e2eTestRunner": "none",
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest",
       "inlineStyle": true,
       "inlineTemplate": true,
-      "prefix": "ngx",
-      "strict": true,
+      "linter": "eslint",
+      "prefix": "ncl",
       "skipTests": true,
+      "strict": true,
+      "style": "scss",
       "tags": "type:app",
+      "unitTestRunner": "jest",
       "viewEncapsulation": "None"
     },
     "@nrwl/angular:library": {
-      "style": "scss",
       "linter": "eslint",
-      "unitTestRunner": "jest",
-      "strict": true
+      "prefix": "nwc",
+      "strict": true,
+      "style": "scss",
+      "unitTestRunner": "jest"
     },
     "@schematics/angular:component": {
       "changeDetection": "OnPush",
