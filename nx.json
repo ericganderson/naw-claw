@@ -28,6 +28,12 @@
     ]
   },
   "projects": {
+    "api": {
+      "tags": []
+    },
+    "core": {
+      "tags": []
+    },
     "frontend": {
       "tags": ["type:app"]
     },
