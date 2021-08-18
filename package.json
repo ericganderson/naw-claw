@@ -62,7 +62,7 @@
     "eslint": "7.22.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
-    "husky": "^7.0.1",
+    "husky": "^4.3.8",
     "jest": "~27.0.3",
     "jest-preset-angular": "9.0.4",
     "lint-staged": "^11.1.2",
@@ -78,7 +78,7 @@
   },
   "lint-staged": {
     "*.{js,json,css,scss,md,ts,html,graphql}": [
-      "pnpm format --uncommited"
+      "pnpm format --uncommitted"
     ]
   }
 }
