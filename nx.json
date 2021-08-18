@@ -28,6 +28,9 @@
     ]
   },
   "projects": {
+    "backend": {
+      "tags": ["type:app"]
+    },
     "frontend": {
       "tags": ["type:app"]
     },

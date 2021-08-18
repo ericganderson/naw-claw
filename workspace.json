@@ -6,24 +6,24 @@
   },
   "generators": {
     "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
       "e2eTestRunner": "none",
       "inlineStyle": true,
       "inlineTemplate": true,
-      "linter": "eslint",
       "prefix": "ncl",
       "skipTests": true,
       "strict": true,
-      "style": "scss",
       "tags": "type:app",
-      "unitTestRunner": "jest",
       "viewEncapsulation": "None"
     },
     "@nrwl/angular:library": {
-      "linter": "eslint",
-      "prefix": "nwc",
-      "strict": true,
       "style": "scss",
-      "unitTestRunner": "jest"
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "prefix": "nwc",
+      "strict": true
     },
     "@schematics/angular:component": {
       "style": "scss",
@@ -36,6 +36,99 @@
   },
   "defaultProject": "frontend",
   "projects": {
+    "backend": {
+      "projectType": "application",
+      "root": "apps/backend",
+      "sourceRoot": "apps/backend/src",
+      "prefix": "api",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/backend",
+            "index": "apps/backend/src/index.html",
+            "main": "apps/backend/src/main.ts",
+            "polyfills": "apps/backend/src/polyfills.ts",
+            "tsConfig": "apps/backend/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/backend/src/favicon.ico",
+              "apps/backend/src/assets"
+            ],
+            "styles": ["apps/backend/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/backend/src/environments/environment.ts",
+                  "with": "apps/backend/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "backend:build:production"
+            },
+            "development": {
+              "browserTarget": "backend:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "backend:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/backend/src/**/*.ts",
+              "apps/backend/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/backend"],
+          "options": {
+            "jestConfig": "apps/backend/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "frontend": {
       "projectType": "application",
       "root": "apps/frontend",
