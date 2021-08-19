@@ -1,8 +1,8 @@
-import { Module } from '@nestjs/common'
+import {Module} from '@nestjs/common'
 
-import { AppController } from './app.controller'
-import { AppService } from './app.service'
-import { CoreModule } from '@naw-claw/core'
+import {AppController} from './app.controller'
+import {AppService} from './app.service'
+import {CoreModule} from '@naw-claw/core'
 
 @Module({
   imports: [CoreModule],
