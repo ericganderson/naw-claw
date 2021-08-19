@@ -34,6 +34,9 @@
     "core": {
       "tags": []
     },
+    "course": {
+      "tags": []
+    },
     "frontend": {
       "tags": ["type:app"]
     },

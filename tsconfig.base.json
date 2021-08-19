@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@naw-claw/core": ["libs/core/src/index.ts"],
+      "@naw-claw/course": ["libs/course/src/index.ts"],
       "@naw-claw/root/environments": ["libs/root/environments/src/index.ts"]
     }
   },
